@@ -10,6 +10,19 @@ import string
 import random
 
 
+print(' 1)Sin up 2)sin in ')
+while True:
+    try:
+        while True:
+            choise = int(input("Enter your choise :"))
+            if choise == 1 or choise ==2:
+                break
+            print("Please Enter choise either 1 or 2")
+    except:
+        print("enter only decimal number.")
+    else:
+        break
+
 def SIGN_UP():
 
     def passkey_generator():
@@ -65,9 +78,8 @@ def SIGN_UP():
 #     number = int(input("ENTER YOUR MOBILE NUMBER"))
 #     password = str(input("ENTER YOUR PASSWORD:"))
 
-
 # choice = int(input("1. New User\n2. Existing User"))
 # if choice == 1:
 #     SIGN_UP()
 # elif choice == 2:    
-#     SIGN_IN()
+# SIGN_IN()
