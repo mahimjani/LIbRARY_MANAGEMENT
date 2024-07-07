@@ -6,45 +6,44 @@
 
 """
 print("WELCOME TO LIBRARY MANAGER")
-import string
-import random
 
 
-print(' 1)Sin up 2)sin in ')
-while True:
-    try:
-        while True:
-            choise = int(input("Enter your choise :"))
-            if choise == 1 or choise ==2:
-                break
-            print("Please Enter choise either 1 or 2")
-    except:
-        print("enter only decimal number.")
-    else:
-        break
+
 
 def SIGN_UP():
 
+    '''generating password for user...'''
+    import string
+    import random
     def passkey_generator():
         char_list = string.ascii_uppercase + string.digits
         passkey = "".join(random.choice(char_list) for _ in range(6))
         return passkey
 
     
-    #try:
+    try:
     
         name = input("ENTER YOUR FULL NAME HERE :")
         
         while True:
-            # try:
-                adhar_num = int(input("ENTER YOUR ADHAR NUM :"))
-                if len(str(adhar_num)) == 12:
+            try:
+                adhar_num = int(input("ENTER YOUR ADHAR NUMBER :"))
+                if adhar_num == None :
+                    print("ENTER VALID ADHAR NUMBER HERE...")
+                    print("")
+                elif len(str(adhar_num)) == 12:
                     break
+                else:
+                    print("SOME ERROR OCCURED DUE TO INVALID INPUT...")
+                    print("")
                 
-            # except:
-            #     print("ENTER VALID AADHAR NUMBER...")  
-                
-
+            except ValueError:
+                print("ADHAR NUMBER CANNOT CONSIST STRING ANYWAY...")
+                print("")
+            except:
+                print("SOME ERROR OCCURED DUE TO INVALID INPUT...")
+                print("")
+        
         while True:
             try:       
                 mobile_num = int(input("ENTER YOUR MOBILE NUMBER :"))
@@ -62,24 +61,45 @@ def SIGN_UP():
 
         
         
-        with open("sign_up",'a') as s:
-            s.write(f"{mobile_num}\n{password}\n{adhar_num}\n{age}")
+        # with open("sign_up",'a') as s:
+        #     s.write(f"{mobile_num}\n{password}\n{adhar_num}\n{age}")
             
                 
-    #except:
-    #     print("ERROR")
+    except:
+        print("ERROR")
 
         age = int(input("ENTER YOUR AGE :"))
         password = passkey_generator()
-        print(f"WELCOME {name}.YOUR ACCOUNT HAS BEEN CREATED...\n YOUR USER NAME IS {mobile_num} AND HERE IS YOUR PASSWORD {password} MAKE SURE TO SAVE IT.")
-    SIGN_UP()
+        # print(f"WELCOME {name}.YOUR ACCOUNT HAS BEEN CREATED...\n YOUR USER NAME IS {mobile_num} AND HERE IS YOUR PASSWORD {password} MAKE SURE TO SAVE IT.")
+SIGN_UP()
  
-# def SIGN_IN():
-#     number = int(input("ENTER YOUR MOBILE NUMBER"))
-#     password = str(input("ENTER YOUR PASSWORD:"))
+def SIGN_IN():
+    number = int(input("ENTER YOUR MOBILE NUMBER"))
+    password = str(input("ENTER YOUR PASSWORD:"))
 
-# choice = int(input("1. New User\n2. Existing User"))
-# if choice == 1:
-#     SIGN_UP()
-# elif choice == 2:    
-# SIGN_IN()
+
+
+
+
+# '''asking for login or signup'''
+# print('1) Sin-up \n2) sin-in ')
+# while True:
+#     try:
+#         choice = int(input("ENTER YOUR CHOICE :"))
+#         if choice == 1:
+#             # SIGN_UP()
+#             break
+#         elif choice == 2:
+#             # SIGN_IN()
+#             break
+#         else:
+#             print("ENTERD CHOICE IS NOT AVAILABLE...")
+#             print("")
+
+#     except ValueError:
+#         print("ENTER YOUR CHOICE IN INTERGER...")
+#         print("")
+
+#     except:
+#         print("EROOR OCCURED DUE TO INVALID INPUT...")
+#         print("")
